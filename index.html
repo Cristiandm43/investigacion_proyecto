@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Empleo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="control.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Búsqueda de Empleo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="soporte.html">Soporte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Acerca de Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Membresía</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Asesoría HV</a>
+                    </li>
+                    <li class="nav-item" id="account-button">
+                        <a class="nav-link btn btn-primary" href="#" id="login-button">
+                            <span style="color: black;">Acceder a la cuenta</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <!-- Columna de filtros -->
+                <div class="col-md-3">
+                    <div class="filter-box">
+                        <h2>Filtros</h2>
+                        <div class="filter-section">
+                            <h4>Salario</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="salario1">
+                                <label class="form-check-label" for="salario1">
+                                    Menos de 1 millón
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="salario2">
+                                <label class="form-check-label" for="salario2">
+                                    1 a 1.5 millones
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="salario3">
+                                <label class="form-check-label" for="salario3">
+                                    1.5 a 2.5 millones
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="salario4">
+                                <label class="form-check-label" for="salario4">
+                                    2.5 millones o más
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <h4>Modalidad</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-remoto">
+                                <label class="form-check-label" for="modalidad-remoto">
+                                    Remoto
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-presencial">
+                                <label class="form-check-label" for="modalidad-presencial">
+                                    Presencial
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-hibrido">
+                                <label class="form-check-label" for="modalidad-hibrido">
+                                    Híbrido
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-todos">
+                                <label class="form-check-label" for="modalidad-todos">
+                                    Todos
+                                </label>
+                            </div>
+                        </div>                        
+                        <div class="filter-section">
+                            <h4>Ciudad</h4>
+                            <select class="form-control" id="ciudad">
+                                <option value="todas">Todas las ciudades</option>
+                                <option value="bogota">Bogotá</option>
+                                <option value="medellin">Medellín</option>
+                                <option value="cali">Cali</option>
+                                <option value="barranquilla">Barranquilla</option>
+                                <option value="cartagena">Cartagena</option>
+                                <option value="bucaramanga">Bucaramanga</option>
+                                <!-- Agregar mas ciudades -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Columna de listado de trabajos -->
+                <div class="col-md-9">
+                    <div class="col-md-3">
+                        <!-- Columna de ordenar por -->
+                        <div class="order-by">
+                            <h4>Ordenar por</h4>
+                            <select id="ordenar-por">
+                                <option value="relevancia">Relevancia</option>
+                                <option value="mas-reciente">Más Reciente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <h2>Listado de Trabajos</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h3><a href="detalle_empleo.html">Desarrollador Web</a></h3>
+                            <p>Descripción del empleo: Desarrollo y mantenimiento de sitios web.</p>
+                            <p>Empresa contratante: ABC Web Solutions</p>
+                            <p>Ubicación: Bogotá</p>
+                            <p>Fecha de publicación: 15 de septiembre de 2023</p>
+                            <div class="job-image">
+                                <img src="img/1.jpg" alt="Imagen de Desarrollo Web" width="150">
+                            </div>
+                            <div style="clear:both;"></div>
+                        </li>
+                        <li class="list-group-item">
+                            <h3><a href="detalle_empleo.html">Diseñador Gráfico</a></h3>
+                            <p>Descripción del empleo: Diseño de gráficos y materiales visuales.</p>
+                            <p>Empresa contratante: XYZ Design Studio</p>
+                            <p>Ubicación: Medellín</p>
+                            <p>Fecha de publicación: 14 de septiembre de 2023</p>
+                            <div class="job-image">
+                                <img src="img/2.jpg" alt="Imagen de Diseño Gráfico" width="150">
+                            </div>
+                            <div style="clear:both;"></div>
+                        </li>
+                        <li class="list-group-item">
+                            <h3><a href="detalle_empleo.html">Gerente de Proyecto</a></h3>
+                            <p>Descripción del empleo: Gestión de proyectos y equipos de trabajo.</p>
+                            <p>Empresa contratante: GlobalCorp</p>
+                            <p>Ubicación: Cali</p>
+                            <p>Fecha de publicación: 12 de septiembre de 2023</p>
+                            <div class="job-image">
+                                <img src="img/3.jpg" alt="Imagen de Diseño Gráfico" width="150">
+                            </div>
+                            <div style="clear:both;"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <section class="job-search">
+            <!-- Formulario de búsqueda de empleo -->
+        </section>
+        
+        <section class="job-listings">
+            <!-- Listado de trabajos (puedes usar una tabla, una lista, etc.) -->
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-box">
+                        &copy; 2023 Búsqueda de Empleo
+                        <br>
+                        <span class="owners">Propietarios: Miguel Parada, Cristian Machado y Daniel Martinez</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

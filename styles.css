@@ -1,0 +1,90 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Estilos para el formulario de búsqueda */
+.job-search {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.job-search input[type="text"],
+.job-search select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Estilos para el listado de trabajos */
+.job-listings {
+    margin-top: 20px;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #007bff; /* Cambiado a azul */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-box {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.footer-box p {
+    color: #000; /* Color de texto negro */
+    font-style: italic; /* Texto en cursiva */
+}
+
+/* Estilos para el botón "Acceder a la cuenta" */
+#login-button {
+    background-color: #007bff; /* Color de fondo azul */
+    border-color: #007bff; /* Color del borde azul */
+}
+
+#login-button:hover {
+    background-color: #0056b3; 
+    border-color: #0056b3;
+}
+
+/* Estilos para el color de texto negro en el botón de acceder a la cuenta */
+#login-button span {
+    color: black;
+}
+
+/* Estilos para la alineación de la imagen */
+.job-image {
+    float: left;
+    margin-left: 10px; /* Espacio entre el texto y la imagen */
+}
