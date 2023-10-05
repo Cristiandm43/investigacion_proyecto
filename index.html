@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="control.js"></script>
 </head>
 <body>
     <header>
@@ -21,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="soporte.html">Soporte</a>
@@ -51,55 +50,61 @@
                 <div class="col-md-3">
                     <div class="filter-box">
                         <h2>Filtros</h2>
-                        <div class="filter-section">
-                            <h4>Salario</h4>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="salario1">
-                                <label class="form-check-label" for="salario1">
-                                    Menos de 1 millón
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="salario2">
-                                <label class="form-check-label" for="salario2">
-                                    1 a 1.5 millones
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="salario3">
-                                <label class="form-check-label" for="salario3">
-                                    1.5 a 2.5 millones
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="salario4">
-                                <label class="form-check-label" for="salario4">
-                                    2.5 millones o más
-                                </label>
-                            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="salario" id="salario-todos" value="todos" checked>
+                            <label class="form-check-label" for="salario-todos">
+                                Todos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="salario" id="salario-menos-de-1m" value="menos-de-1m">
+                            <label class="form-check-label" for="salario-menos-de-1m">
+                                Menos de 1 millón
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="salario" id="salario-1m-a-1.5m" value="1m-a-1.5m">
+                            <label class="form-check-label" for="salario-1m-a-1.5m">
+                                1 a 1.5 millones
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="salario" id="salario-1.5m-a-2.5m" value="1.5m-a-2.5m">
+                            <label class="form-check-label" for="salario-1.5m-a-2.5m">
+                                1.5 a 2.5 millones
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="salario" id="salario-mas-de-2.5m" value="mas-de-2.5m">
+                            <label class="form-check-label" for="salario-mas-de-2.5m">
+                                2.5 millones o más
+                            </label>
                         </div>
                         <div class="filter-section">
                             <h4>Modalidad</h4>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-remoto">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-remoto" value="remoto">
                                 <label class="form-check-label" for="modalidad-remoto">
                                     Remoto
                                 </label>
                             </div>
+                            
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-presencial">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-presencial" value="presencial">
                                 <label class="form-check-label" for="modalidad-presencial">
                                     Presencial
                                 </label>
                             </div>
+                            
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-hibrido">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-hibrido" value="hibrido">
                                 <label class="form-check-label" for="modalidad-hibrido">
                                     Híbrido
                                 </label>
                             </div>
+                            
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-todos">
+                                <input class="form-check-input" type="radio" name="modalidad" id="modalidad-todos" value="todos" checked>
                                 <label class="form-check-label" for="modalidad-todos">
                                     Todos
                                 </label>
@@ -119,6 +124,8 @@
                             </select>
                         </div>
                     </div>
+                    <br>
+                    <button id="aplicar-filtros-button" class="btn btn-primary" onclick="aplicarFiltros()">Aplicar Filtros</button>
                 </div>
                 <!-- Columna de listado de trabajos -->
                 <div class="col-md-9">
@@ -133,8 +140,8 @@
                         </div>
                     </div>
                     <h2>Listado de Trabajos</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item">
+                    <ul class="list-group" id="listaElementos">
+                        <li class="list-group-item" data-modalidad="remoto" data-ciudad="bogota" data-salario="2000000">
                             <h3><a href="detalle_empleo.html">Desarrollador Web</a></h3>
                             <p>Descripción del empleo: Desarrollo y mantenimiento de sitios web.</p>
                             <p>Empresa contratante: ABC Web Solutions</p>
@@ -145,8 +152,8 @@
                             </div>
                             <div style="clear:both;"></div>
                         </li>
-                        <li class="list-group-item">
-                            <h3><a href="detalle_empleo.html">Diseñador Gráfico</a></h3>
+                        <li class="list-group-item" data-modalidad="presencial" data-ciudad="medellin" data-salario="1500000">
+                            <h3><a href="detalle_empleo.html">Diseñador Grafico</a></h3>
                             <p>Descripción del empleo: Diseño de gráficos y materiales visuales.</p>
                             <p>Empresa contratante: XYZ Design Studio</p>
                             <p>Ubicación: Medellín</p>
@@ -156,7 +163,7 @@
                             </div>
                             <div style="clear:both;"></div>
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item" data-modalidad="hibrido" data-ciudad="cali" data-salario="1000000">
                             <h3><a href="detalle_empleo.html">Gerente de Proyecto</a></h3>
                             <p>Descripción del empleo: Gestión de proyectos y equipos de trabajo.</p>
                             <p>Empresa contratante: GlobalCorp</p>
@@ -166,6 +173,28 @@
                                 <img src="img/3.jpg" alt="Imagen de Diseño Gráfico" width="150">
                             </div>
                             <div style="clear:both;"></div>
+                            <li class="list-group-item" data-modalidad="remoto" data-ciudad="medellin" data-salario="3000000">
+                                <h3><a href="detalle_empleo.html">Desarrollador de Apps</a></h3>
+                                <p>Descripción del empleo: Desarrollo de aplicaciones móviles.</p>
+                                <p>Empresa contratante: MobileTech</p>
+                                <p>Ubicación: Medellín</p>
+                                <p>Fecha de publicación: 10 de septiembre de 2023</p>
+                                <div class="job-image">
+                                    <img src="img/8.jpg" alt="Imagen de Desarrollo de Apps" width="150">
+                                </div>
+                                <div style="clear:both;"></div>
+                            </li>
+                            <li class="list-group-item" data-modalidad="remoto" data-ciudad="barranquilla" data-salario="1800000">
+                                <h3><a href="detalle_empleo.html">Analista de Datos</a></h3>
+                                <p>Descripción del empleo: Análisis de datos y generación de informes.</p>
+                                <p>Empresa contratante: DataInsights</p>
+                                <p>Ubicación: Barranquilla</p>
+                                <p>Fecha de publicación: 8 de septiembre de 2023</p>
+                                <div class="job-image">
+                                    <img src="img/9.jpg" alt="Imagen de Analista de Datos" width="150">
+                                </div>
+                                <div style="clear:both;"></div>
+                            </li>
                         </li>
                     </ul>
                 </div>
@@ -192,5 +221,6 @@
             </div>
         </div>
     </footer>
+    <script src="control.js"></script>
 </body>
 </html>
