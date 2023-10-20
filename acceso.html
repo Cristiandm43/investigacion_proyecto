@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de Empleo</title>
+    <title>Acceso y Registro</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -35,49 +35,51 @@
                     <li class="nav-item">
                         <a class="nav-link" href="asesoria.html">Asesoría HV</a>
                     </li>
-                    <li class="nav-item" id="account-button">
-                        <a class="nav-link btn btn-primary" href="acceso.html" id="login-button">
-                            <span style="color: rgb(54, 56, 58);">Acceder a la cuenta</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <!-- Contenido principal -->
+    <!-- Contenido de la página de acceso y registro -->
     <div class="container mt-4">
-        <div class="row">
-            <!-- Columna de filtros -->
-            <div class="col-md-3">
-                <!-- Aquí van tus filtros -->
-            </div>
-            <!-- Columna de lista de empleos -->
-            <div class="col-md-9">
-                <!-- Aquí va tu lista de empleos -->
-            </div>
+        <h1>Acceder o Registrarse</h1>
+        <!-- Formulario de acceso -->
+        <div class="membresia">
+            <h2>Acceder a tu cuenta</h2>
+            <form>
+                <div class="form-group">
+                    <label for="usuario">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="usuario" placeholder="Ingresa tu nombre de usuario">
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasena" placeholder="Ingresa tu contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary">Acceder</button>
+            </form>
         </div>
-    </div>
-    <!-- Acerca de Nosotros -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Columna de texto Acerca de Nosotros -->
-            <div class="col-md-6">
-                <h3>Misión</h3>
-                <p>En CDM, nuestra misión es transformar la vida de los jóvenes colombianos al reducir la tasa de desempleo a través de una plataforma de búsqueda de empleo innovadora y accesible...</p>
 
-                <h3>Visión</h3>
-                <p>Nuestra visión en CDM es ser el líder indiscutible en la reducción de la tasa de desempleo juvenil en Colombia...</p>
-            </div>
-
-            <!-- Columna de texto Sobre Nosotros -->
-            <div class="col-md-6">
-                <h2>Sobre Nosotros</h2>
-                <p>En CDM, creemos que el talento joven es la fuerza impulsora detrás del éxito de Colombia. Fundada en 2023, nuestra empresa se ha dedicado incansablemente a abordar el desafío del desempleo juvenil en el país...</p>
-
-                <p>Lo que nos distingue es nuestra pasión por el cambio positivo y la innovación constante. Trabajamos en estrecha colaboración con instituciones educativas, gobiernos locales y empresas...</p>
-
-                <p>En CDM, estamos comprometidos con la construcción de un futuro más brillante para los jóvenes de Colombia y el desarrollo económico del país...</p>
-            </div>
+        <!-- Formulario de registro -->
+        <div class="membresia">
+            <h2>Crear una cuenta</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="nuevo-usuario">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="nuevo-usuario" placeholder="Elige un nombre de usuario">
+                </div>
+                <div class="form-group">
+                    <label for="nueva-contrasena">Contraseña</label>
+                    <input type="password" class="form-control" id="nueva-contrasena" placeholder="Elige una contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </form>
         </div>
     </div>
     <footer>

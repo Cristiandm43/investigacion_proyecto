@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="control.js"></script>
 </head>
 <body>
     <header>
@@ -44,42 +43,47 @@
             </div>
         </nav>
     </header>
-    <!-- Contenido principal -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Columna de filtros -->
-            <div class="col-md-3">
-                <!-- Aquí van tus filtros -->
+    <main>
+        <article id="hero">
+            <h1>Tecnico de ingenieria - tecnofar tq</h1>
+            <p>En Tecnofar - TQ buscamos tecnólogo en mecánica, electrónica o industrial, con una experiencia mínima de 2 años en sector farmacéutico, cosméticos o de alimentos.
+             Su rol principal será apoyar el proceso de instalación, calificación y entrega de nuevos equipos a la planta, además de realizar el levantamiento de documentación, como manuales e instructivos y finalmente entrenar al personal que manejará estos equipos..</p>
+        </article>
+        <article id="about">
+            <h2>Informacion sobre el puesto</h2>
+            <p>Para su desarrollo profesional y bienestar, TQ ofrece servicio de transporte y alimentación, además de constantes capacitaciones en equipos tecnológicos..</p>
+            <ul>
+                <li>Contrato a termino Fijo (1año)- Directo por TQ.</li>
+                <li>Proporcionar asistencia remota y telefónica a los clientes.</li>
+                <li>Horarios rotativos</li>
+            </ul>
+        </article>
+        <article id="requirements">
+            <h2>Aspectos complementarios</h2>
+            <div class="requst">
+            <ul class="requirements">
+                <li> titulos: Auxiliar, asistencial y otros.</li>
+                <li>Contrato definido.</li>
+                <li>2 años de experiencia.</li>
+                <li>1 vacante.</li>
+            </ul>
             </div>
-            <!-- Columna de lista de empleos -->
-            <div class="col-md-9">
-                <!-- Aquí va tu lista de empleos -->
-            </div>
-        </div>
-    </div>
-    <!-- Acerca de Nosotros -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Columna de texto Acerca de Nosotros -->
-            <div class="col-md-6">
-                <h3>Misión</h3>
-                <p>En CDM, nuestra misión es transformar la vida de los jóvenes colombianos al reducir la tasa de desempleo a través de una plataforma de búsqueda de empleo innovadora y accesible...</p>
-
-                <h3>Visión</h3>
-                <p>Nuestra visión en CDM es ser el líder indiscutible en la reducción de la tasa de desempleo juvenil en Colombia...</p>
-            </div>
-
-            <!-- Columna de texto Sobre Nosotros -->
-            <div class="col-md-6">
-                <h2>Sobre Nosotros</h2>
-                <p>En CDM, creemos que el talento joven es la fuerza impulsora detrás del éxito de Colombia. Fundada en 2023, nuestra empresa se ha dedicado incansablemente a abordar el desafío del desempleo juvenil en el país...</p>
-
-                <p>Lo que nos distingue es nuestra pasión por el cambio positivo y la innovación constante. Trabajamos en estrecha colaboración con instituciones educativas, gobiernos locales y empresas...</p>
-
-                <p>En CDM, estamos comprometidos con la construcción de un futuro más brillante para los jóvenes de Colombia y el desarrollo económico del país...</p>
-            </div>
-        </div>
-    </div>
+        </article>
+        <article id="contact">
+            <h2>Contacto</h2>
+            <form action="#" method="post">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Nombre">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+                <label for="phone">Teléfono</label>
+                <input type="text" id="phone" name="phone" placeholder="Teléfono">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" placeholder="Mensaje"></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+        </article>
+    </main>
     <footer>
         <div class="container">
             <div class="row">
@@ -95,3 +99,7 @@
     </footer>
 </body>
 </html>
+
+
+
+

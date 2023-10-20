@@ -78,6 +78,158 @@ document.addEventListener("DOMContentLoaded", function () {
         checkbox.addEventListener('change', aplicarFiltros);
     });
 
-    // Llamar a la función al cargar la página para mostrar todos los trabajos inicialmente
-    aplicarFiltros();
+    function mostrarOcultarIcono() {
+        const terminoBusqueda = document.getElementById("busqueda").value;
+        const icono = document.querySelector(".search-icon i");
+
+        if (terminoBusqueda.trim() === "") {
+            icono.style.display = "block";
+        } else {
+            icono.style.display = "none";
+        }
+
+        buscar();
+    }
+
+    document.getElementById("busqueda").addEventListener("input", mostrarOcultarIcono);
+
+    function buscar() {
+        const terminoBusqueda = document.getElementById("busqueda").value.toLowerCase();
+        const listaTrabajos = document.querySelectorAll('.list-group-item');
+
+        listaTrabajos.forEach(trabajo => {
+            const tituloTrabajo = trabajo.querySelector('h3 a').textContent.toLowerCase();
+
+            if (tituloTrabajo.includes(terminoBusqueda)) {
+                trabajo.style.display = 'block';
+            } else {
+                trabajo.style.display = 'none';
+            }
+        });
+    }
+
+    // Agregar un evento de escucha al menú desplegable de "ordenar por" para activar el filtro
+    const ordenarPorSelect = document.getElementById('ordenar-por');
+    ordenarPorSelect.addEventListener('change', ordenarEmpleos);
+
+    function ordenarEmpleos() {
+        const criterio = ordenarPorSelect.value;
+        const listaElementos = document.getElementById("listaElementos");
+        const empleos = Array.from(listaElementos.getElementsByClassName("list-group-item"));
+
+        empleos.sort(function (a, b) {
+            if (criterio === "fecha") {
+                const fechaA = new Date(a.getAttribute('data-fecha'));
+                const fechaB = new Date(b.getAttribute('data-fecha'));
+                return fechaB - fechaA;
+            } else if (criterio === "relevancia") {
+                const relevanciaA = parseInt(a.getAttribute('data-relevancia'), 10);
+                const relevanciaB = parseInt(b.getAttribute('data-relevancia'), 10);
+                return relevanciaB - relevanciaA;
+            }
+        });
+
+        // Elimina elementos de la lista actual
+        while (listaElementos.firstChild) {
+            listaElementos.removeChild(listaElementos.firstChild);
+        }
+
+        // Agrega los elementos ordenados de nuevo
+        empleos.forEach(function (empleo) {
+            listaElementos.appendChild(empleo);
+        });
+    }
+
+    // Tu código de paginación existente...
+    
+    const empleosPorPagina = 5;
+    let paginaActual = 1;
+    const listaElementos = document.getElementById("listaElementos");
+    const empleos = Array.from(listaElementos.getElementsByClassName("list-group-item"));
+    const totalPaginas = Math.ceil(empleos.length / empleosPorPagina);
+
+    function mostrarEmpleosEnPagina(pagina) {
+        const inicio = (pagina - 1) * empleosPorPagina;
+        const fin = inicio + empleosPorPagina;
+
+        empleos.forEach(function (empleo, index) {
+            if (index >= inicio && index < fin) {
+                empleo.style.display = 'block';
+            } else {
+                empleo.style.display = 'none';
+            }
+        });
+    }
+
+    function generarNumerosPagina() {
+        const pagination = document.getElementById("pagination");
+        const prevPage = document.getElementById("prev-page");
+        const nextPage = document.getElementById("next-page");
+
+        while (pagination.firstChild) {
+            pagination.removeChild(pagination.firstChild);
+        }
+
+        const ul = document.createElement("ul");
+        ul.classList.add("pagination", "justify-content-center");
+
+        if (paginaActual > 1) {
+            prevPage.classList.remove("disabled");
+        } else {
+            prevPage.classList.add("disabled");
+        }
+
+        prevPage.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (paginaActual > 1) {
+                paginaActual--;
+                mostrarEmpleosEnPagina(paginaActual);
+                generarNumerosPagina();
+            }
+        });
+
+        if (paginaActual < totalPaginas) {
+            nextPage.classList.remove("disabled");
+        } else {
+            nextPage.classList.add("disabled");
+        }
+
+        nextPage.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (paginaActual < totalPaginas) {
+                paginaActual++;
+                mostrarEmpleosEnPagina(paginaActual);
+                generarNumerosPagina();
+            }
+        });
+
+        ul.appendChild(prevPage);
+
+        for (let i = 1; i <= totalPaginas; i++) {
+            const li = document.createElement("li");
+            li.classList.add("page-item");
+            if (i === paginaActual) {
+                li.classList.add("active");
+            }
+            const a = document.createElement("a");
+            a.classList.add("page-link");
+            a.href = "#";
+            a.textContent = i;
+            li.appendChild(a);
+            ul.appendChild(li);
+
+            a.addEventListener("click", function (e) {
+                e.preventDefault();
+                paginaActual = i;
+                mostrarEmpleosEnPagina(paginaActual);
+                generarNumerosPagina();
+            });
+        }
+
+        ul.appendChild(nextPage);
+        pagination.appendChild(ul);
+    }
+
+    mostrarEmpleosEnPagina(paginaActual);
+    generarNumerosPagina();
 });

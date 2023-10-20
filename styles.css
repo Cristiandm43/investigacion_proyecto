@@ -6,22 +6,10 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #006eff;
     color: #fff;
     text-align: center;
     padding: 20px;
-}
-
-nav {
-    background-color: #444;
-    color: #fff;
-    padding: 10px;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 10px;
 }
 
 main {
@@ -88,3 +76,142 @@ footer {
     float: left;
     margin-left: 10px; /* Espacio entre el texto y la imagen */
 }
+
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #ff6b6b;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #e5ff00;
+    color: #fff;
+    padding: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Artículo */
+article {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos y texto */
+h1, h2 {
+    color: var(--text-color);
+}
+
+p {
+    color: #666;
+}
+
+/* Botón */
+.button {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #e94545;
+}
+
+/* Formulario */
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #005a8d;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #007bff; /* Cambiado a azul */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-box {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.footer-box p {
+    color: #000; /* Color de texto negro */
+    font-style: italic; /* Texto en cursiva */
+}
+
+/* Imagen */
+.img {
+    max-width: 20%;
+    height: auto;
+}
+
+/* Clase 'requst' */
+.requst {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.search-icon {
+    display: none;
+}
+
+.search-icon i {
+    font-size: 18px;
+    color: gray;
+}
+

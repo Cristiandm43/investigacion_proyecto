@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de Empleo</title>
+    <title>Asesoría en Búsqueda de Empleo</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="control.js"></script>
+
+    <style>
+        body {
+            background-image: url('fondo.jpg'); /* Agrega la ruta de tu imagen de fondo */
+            background-size: cover;
+        }
+        .asesoria {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-top: 80px; /* Aumenta el espacio entre el título y la parte superior */
+            text-align: center;
+            color: #333;
+            font-size: 28px; /* Aumenta el tamaño de la fuente */
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+    </style>
+
 </head>
 <body>
     <header>
+        <!-- Tu barra de navegación -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Búsqueda de Empleo</a>
+            <a class="navbar-brand" href="#">Búsqueda de Empleo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,49 +69,34 @@
                     </li>
                     <li class="nav-item" id="account-button">
                         <a class="nav-link btn btn-primary" href="acceso.html" id="login-button">
-                            <span style="color: rgb(54, 56, 58);">Acceder a la cuenta</span>
+                            <span style="color: black;">Acceder a la cuenta</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <!-- Contenido principal -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Columna de filtros -->
-            <div class="col-md-3">
-                <!-- Aquí van tus filtros -->
-            </div>
-            <!-- Columna de lista de empleos -->
-            <div class="col-md-9">
-                <!-- Aquí va tu lista de empleos -->
-            </div>
-        </div>
+    <!-- Contenido de la página de asesoría en búsqueda de empleo -->
+    <h1>
+        Asesoría en Búsqueda de Empleo
+    </h1>
+
+
+    <p style="font-size: 20px;">¡Obtén la ayuda que necesitas para encontrar el trabajo de tus sueños!</p>
+    <!-- Beneficios de la asesoría -->
+    <div class="asesoria">
+        <h2>Asesoría Personalizada</h2>
+        <p>Obtén asesoría y revisión de tu hoja de vida para destacar en tu búsqueda de empleo.</p>
+        <ul>
+            <li>Revisión de CV para optimizarlo.</li>
+            <li>Consejos sobre cómo destacarte en entrevistas laborales.</li>
+            <li>Acceso a recursos exclusivos de búsqueda de empleo.</li>
+            <li>Asesoramiento personalizado en tu búsqueda de trabajo.</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Solicitar Asesoría</a>
     </div>
-    <!-- Acerca de Nosotros -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Columna de texto Acerca de Nosotros -->
-            <div class="col-md-6">
-                <h3>Misión</h3>
-                <p>En CDM, nuestra misión es transformar la vida de los jóvenes colombianos al reducir la tasa de desempleo a través de una plataforma de búsqueda de empleo innovadora y accesible...</p>
-
-                <h3>Visión</h3>
-                <p>Nuestra visión en CDM es ser el líder indiscutible en la reducción de la tasa de desempleo juvenil en Colombia...</p>
-            </div>
-
-            <!-- Columna de texto Sobre Nosotros -->
-            <div class="col-md-6">
-                <h2>Sobre Nosotros</h2>
-                <p>En CDM, creemos que el talento joven es la fuerza impulsora detrás del éxito de Colombia. Fundada en 2023, nuestra empresa se ha dedicado incansablemente a abordar el desafío del desempleo juvenil en el país...</p>
-
-                <p>Lo que nos distingue es nuestra pasión por el cambio positivo y la innovación constante. Trabajamos en estrecha colaboración con instituciones educativas, gobiernos locales y empresas...</p>
-
-                <p>En CDM, estamos comprometidos con la construcción de un futuro más brillante para los jóvenes de Colombia y el desarrollo económico del país...</p>
-            </div>
-        </div>
-    </div>
+    <input type="file" id="pdfInput" accept=".pdf">
+    <div id="pdfViewer"></div>
     <footer>
         <div class="container">
             <div class="row">
